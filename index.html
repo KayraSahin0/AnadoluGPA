@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anadolu Üniversitesi GPA Hesaplama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>Anadolu Üniversitesi</h1>
+            <p>GPA Hesaplama Aracı</p>
+        </div>
+        <div class="controls">
+            <select id="departmentSelect">
+                <option>Yükleniyor...</option>
+            </select>
+        </div>
+    </header>
+
+    <div id="loadingIndicator" style="text-align:center; padding:20px; font-weight:bold; color:#002d58; display:none;">
+        Dersler Yükleniyor...
+    </div>
+
+    <div class="main-container" id="semestersContainer">
+        </div>
+
+    <footer class="bottom-bar">
+        <div>
+            <span>Hesaplanan Kredi: <strong id="totalCredits">0</strong></span>
+        </div>
+        <div class="result-box">
+            GENEL ORTALAMA (GPA): <span class="gpa-value" id="gpaResult">0.00</span>
+        </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

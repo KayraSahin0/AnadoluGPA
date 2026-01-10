@@ -1,0 +1,128 @@
+/* style.css */
+:root {
+    --primary-color: #002d58;
+    --secondary-color: #d11242;
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+html, body {
+    height: 100%; /* Sayfanın tam yüksekliği kaplamasını sağla */
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Sayfa içeriğini dikey bir flex container yap */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* En az ekran yüksekliği kadar olsun */
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Header'ın kenarlara yapışması için margin/border-radius kaldırıldı */
+}
+
+.logo-area h1 { margin: 0; font-size: 1.5rem; }
+.logo-area p { margin: 5px 0 0; opacity: 0.8; font-size: 0.9rem; }
+.controls select { padding: 10px; border-radius: 4px; border: 1px solid #ddd; font-size: 1rem; min-width: 250px; }
+
+/* Ana içerik alanı */
+.main-container {
+    flex: 1; /* Boş alanı kaplayarak footer'ı aşağı it */
+    display: grid;
+    /* Yan yana tam 2 sütun, eşit genişlikte */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 25px; /* Kartlar arası boşluk */
+    padding: 30px;
+    
+    /* İçeriği ortalamak için max-width ve margin */
+    max-width: 1100px; 
+    margin: 0 auto;
+    width: 100%; /* Kapsayıcıya sığması için */
+    box-sizing: border-box; /* Padding'i genişliğe dahil et */
+}
+
+.semester-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    height: fit-content; /* İçerik kadar yükseklik */
+}
+
+/* ... (semester-header, course-list, course-row, credit-badge, vb. aynı kalıyor) ... */
+.semester-header { background: #e9ecef; padding: 10px 15px; font-weight: bold; color: var(--primary-color); border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; }
+.course-list { padding: 10px; }
+.course-row { display: grid; grid-template-columns: 35px 1fr 80px; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid #f1f1f1; }
+.course-row:last-child { border-bottom: none; }
+.credit-badge { background: var(--primary-color); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: bold; }
+.course-name { font-size: 0.9rem; font-weight: 500; }
+.course-code { font-size: 0.75rem; color: #777; display: block; margin-top: 2px; }
+select.grade-select, select.elective-select { width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem; }
+.elective-select { margin-bottom: 3px; border-color: var(--secondary-color); color: var(--secondary-color); font-weight: 500; }
+
+/* Yeni Footer (Bottom Bar) */
+.bottom-bar {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Flex container içinde en alta iter */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.result-box { text-align: right; }
+.gpa-value { font-size: 1.8rem; font-weight: bold; color: #ffca28; margin-left: 10px; }
+
+/* Mobilde tek sütuna düşür */
+@media (max-width: 768px) {
+    .main-container { grid-template-columns: 1fr; padding: 15px; }
+    header { flex-direction: column; gap: 15px; text-align: center; }
+    .bottom-bar { flex-direction: column; gap: 15px; text-align: center; padding: 20px; }
+    .result-box { text-align: center; }
+}
+
+/* style.css içine ekleyin veya güncelleyin */
+
+.elective-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d11242; /* Seçmeli olduğu belli olsun diye bordo */
+    border-radius: 4px;
+    background-color: #fff5f7;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+}
+
+.course-code-hint {
+    font-size: 0.7rem;
+    color: #d11242;
+    font-style: italic;
+}
+
+/* Loading animasyonu için basit stil */
+#loadingIndicator {
+    font-size: 1.2rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
+}
