@@ -14,12 +14,28 @@
             <h1>Anadolu Üniversitesi</h1>
             <p>GPA Hesaplama Aracı</p>
         </div>
-        <div class="controls">
-            <select id="departmentSelect">
-                <option>Yükleniyor...</option>
-            </select>
-        </div>
     </header>
+
+    <div class="hero-selection">
+        <div class="selection-card">
+            <h2>Hoş Geldiniz</h2>
+            <p>Derslerinizi görüntülemek için fakülte ve bölüm seçiniz.</p>
+            
+            <div class="select-group">
+                <label>Fakülte</label>
+                <select id="facultySelect">
+                    <option value="">Seçim Yapınız...</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <label>Bölüm</label>
+                <select id="departmentSelect" disabled>
+                    <option value="">Önce Fakülte Seçiniz</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
     <div id="loadingIndicator" style="text-align:center; padding:20px; font-weight:bold; color:#002d58; display:none;">
         Dersler Yükleniyor...

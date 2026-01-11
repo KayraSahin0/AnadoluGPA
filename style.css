@@ -126,3 +126,107 @@ select.grade-select, select.elective-select { width: 100%; padding: 6px; border:
 @keyframes blink {
     50% { opacity: 0.5; }
 }
+
+/* Header düzenlemesi (Sadece ortalasın) */
+header {
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Modern Seçim Alanı */
+.hero-selection {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: linear-gradient(180deg, var(--bg-color) 0%, #e3e7ed 100%);
+}
+
+.selection-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 45, 88, 0.1); /* Hafif gölge */
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    
+    /* Animasyon: Aşağıdan yukarı kayarak gelme */
+    animation: slideUpFade 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.selection-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.selection-card p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* Select Kutuları Tasarımı */
+.select-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.select-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.select-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+.select-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(0, 45, 88, 0.1);
+}
+
+.select-group select:disabled {
+    background-color: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Animasyon Keyframes */
+@keyframes slideUpFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading Animasyonu (Dönen daire) */
+.loader {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 45, 88, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
