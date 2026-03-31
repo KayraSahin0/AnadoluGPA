@@ -1,5 +1,3 @@
-// data.js - FİNAL VERSİYON
-
 // 1. Google Sheets Ayarları
 const SPREADSHEET_ID = "1yRLA2ETYW4GxGgdDFKowNo0dtLHiInzmtcdD2fPahEE"; 
 
@@ -73,9 +71,8 @@ function processCSV(csvText, deptCode) {
 
         // Veri Temizliği
         const donem = row.Donem;
-        const kredi = parseInt(row.Kredi) || 0;
-        // Tür bilgisindeki boşlukları temizle ("Mesleki Seçmeli " -> "Mesleki Seçmeli")
-        const tur = row.Tur ? row.Tur.trim() : "Zorunlu";
+        const kredi = parseFloat(row.Kredi) || 0;
+        const tur = row.Tur ? row.Tur.trim() : "Zorunlu Dersler";
         
         const course = { 
             code: row.DersKodu, 
